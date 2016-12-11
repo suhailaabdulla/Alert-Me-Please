@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html ng-app="Recuerda">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+        <title>RemindMe</title>
+        <link href="lib/ionic/css/ionic.min.css" rel="stylesheet">
+        <link href="css/style.css" rel="stylesheet">
+        <link href="css/recuerda-style.css" rel="stylesheet">
+        <link href="css/priya-style.css" rel="stylesheet">
+        <link href="css/nimitha-style.css" rel="stylesheet">
+        <link href="css/suhaila-style.css" rel="stylesheet">
+        <link href="css/jeena-style.css" rel="stylesheet">
+        <link href="lib/date-picker/css/ionic-datepicker.styles.css" rel="stylesheet">
+        <link href='css/openSans.css' rel='stylesheet'>
+        
+    </head>
+    <body animation="slide-left-right-ios7">
+        <ion-nav-view class="main-nav-view"></ion-nav-view>
+    </body>
+
+    <script src="lib/firebase/firebasejs/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+     var config = {
+         apiKey: "AIzaSyDdKHNCL51x0rYWJrt4ICLMgXMIFc4e2rY",
+         authDomain: "recuerda-b6705.firebaseapp.com",
+         databaseURL: "https://recuerda-b6705.firebaseio.com",
+         storageBucket: "recuerda-b6705.appspot.com",
+     };
+     firebase.initializeApp(config);
+    </script>
+
+
+     <!-- Firebase -->
+    <script src="lib/firebase/client/firebase.js"></script>
+
+
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.min.js"></script>
+
+    <!-- Date picker -->
+    <script src="lib/date-picker/js/ionic-datepicker.bundle.min.js"></script>
+    
+    <script src="lib/angular-local-storage/angular-local-storage.min.js"></script>
+
+    <!-- your app's js -->
+    <script src="app/app.module.js"></script>
+    
+    <!-- Configurations -->
+    <script src="app/shared/config.values.js"></script>
+
+    <!-- Controllers -->
+    <script src="app/login/controller/LoginController.js"></script>
+    <script src="app/logs/controller/LogsController.js"></script>
+    <script src="app/tasks/controller/TasksController.js"></script>
+    <script src="app/addtask/controller/AddTaskController.js"></script>
+    <script src="app/registration/controller/controller/RegistrationController.js"></script>
+    <script src="app/settings/controller/SettingsController.js"></script>
+    <script src="app/reminder/controller/ReminderController.js"></script>
+    <script src="app/shared/controller/HeaderController.js"></script>
+    <script src="app/profile/controller/ProfileController.js"></script>
+    <script src="app/addreminder/controller/AddReminderController.js"></script>
+    <script src="app/viewtask/controller/ViewTaskController.js"></script>
+     <script src="app/viewreminder/controller/ViewReminderController.js"></script>
+
+     <!-- Services -->
+    <script src="app/addtask/service/AddTaskService.js"></script>
+    <script src="app/registration/service/RegistrationService.js"></script>
+    <script src="app/profile/service/ProfileService.js"></script>
+    <script src="app/login/service/LoginService.js"></script>
+    <script src="app/reminder/service/ReminderService.js"></script> 
+    <script src="app/addreminder/service/AddReminderService.js"></script>
+    <script src="app/shared/service/HeaderService.js"></script>
+    <script src="app/tasks/service/TaskService.js"></script>
+    <script src="app/viewtask/service/ViewTaskService.js"></script>
+    <script src="app/viewreminder/service/ViewReminderService.js"></script>
+    <script src="app/logs/service/LogsService.js"></script>
+
+   
+</html>

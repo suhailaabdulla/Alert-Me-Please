@@ -1,0 +1,41 @@
+<ion-view title={{pageTitle}}>
+	<ion-content class="reminder-page">
+		<div class="ion-content">
+			<div class="row">
+         	         	<div class="col-20"></div>
+         		     <div class="col align-center">
+         				<button class="button button-block button-balanced" ng-click="Reminder.addReminder()" ng-init="count=0">ADD REMINDER
+         				</button> 
+         			</div>
+         			<div class="col-20"></div>
+         			</div>
+			
+				<ul class="list margin-top-15" >
+            		<li class="item border" ng-repeat="item in Reminder.reminder"> 
+		            	<div class="row task-style" ng-click="Reminder.GotoViewReminder(item)">
+		            		
+		            		<div class="col-15"><img src="img/clock.png" class="clock" /></div>
+		            		
+		            		<div class="col color-change">{{item.reminderDate}}</div>
+		            		<div class="col-50">
+				           		<div class="row">
+		            				<div class="col">{{item.reminderName}}</div>
+		            			</div>
+		            			<div class="row">
+		            				<div class="col color-change">{{item.reminderDescription}}</div>
+		            			</div>
+		            			<div class="col" ng-class="{'red':(item.reminderPriority=='high'),'red-lighter':(item.reminderPriority=='medium'),'verylighter':(item.reminderPriority=='low')}"></div>
+		            		</div>
+		            		
+		            	</div>
+            	     </li>
+                </ul>
+         	        
+	 	 </div>
+	</ion-content>
+</ion-view><!--  <div class="row">
+			  <div class="col"></div>
+			  <div class="col tasks-page-title">TASKS</div>
+			  <div class="col"></div>
+			</div>-->
+			  

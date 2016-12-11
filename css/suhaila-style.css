@@ -1,0 +1,27 @@
+img.user-image-style {
+    margin-left: 10px;
+    width: 75px;
+    height: 75px;
+}
+.slide-menu-heading{
+	font-family: cursive;
+    font-size: 30px;
+    color: rgb(247, 251, 252);
+    margin: 5px;
+}
+.col.loginOrSignup {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 13px;
+}
+input.userimage {
+    background-image: url("../img/user.png");
+    background-repeat: no-repeat;
+    background-color: #789169;
+    padding-left: 58px;
+}
+input.passwordimage{
+	background-image: url("../img/password.png");
+	background-repeat: no-repeat;
+	background-color: #789169;
+	 padding-left: 58px;
+}

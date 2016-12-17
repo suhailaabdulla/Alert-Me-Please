@@ -15,42 +15,29 @@
 
      .factory('ViewTaskPersistenceDataService', ViewTaskPersistenceDataService);
 
-     ViewTaskDataService.$inject = ['ViewTaskClientDataService'];
+     ViewTaskDataService.$inject = [];
 
-     function ViewTaskDataService(ViewTaskClientDataService) {
+     function ViewTaskDataService() {
          var viewTaskDataService = {
-             getTaskDetails: getTaskDetails
+             
             
          };
 
          return viewTaskDataService;
 
-         function getTaskDetails() {
-             return ViewTaskClientDataService.getTaskDetails();
-         }
-        
+       
      }
 
-     ViewTaskClientDataService.$inject = ['$q', 'localStorageService', 'config'];
+     ViewTaskClientDataService.$inject = [];
 
-     function ViewTaskClientDataService($q, localStorageService, config) {
+     function ViewTaskClientDataService() {
          var viewTaskClientDataService = {
-             getTaskDetails: getTaskDetails
+             
            
          };
          return viewTaskClientDataService;
 
-         function getTaskDetails() {
-             var defer = $q.defer();
-             var taskDetails = localStorageService.get(config.localStorageKeys.taskDetails);
-             if (taskDetails) {
-                //console.log(taskDetails);
-                 defer.resolve(taskDetails);
-             } else {
-                 defer.reject();
-             }
-             return defer.promise;
-         }
+        
          
 
      }

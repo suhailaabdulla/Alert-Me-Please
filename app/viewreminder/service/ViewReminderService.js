@@ -15,43 +15,28 @@
 
      .factory('ViewReminderPersistenceDataService', ViewReminderPersistenceDataService);
 
-     ViewReminderDataService.$inject = ['ViewReminderClientDataService'];
+     ViewReminderDataService.$inject = [];
 
-     function ViewReminderDataService(ViewReminderClientDataService) {
+     function ViewReminderDataService() {
          var viewReminderDataService = {
-             getReminderDetails: getReminderDetails
+            
             
          };
 
          return viewReminderDataService;
 
-         function getReminderDetails() {
-             return ViewReminderClientDataService.getReminderDetails();
-         }
-        
      }
 
-     ViewReminderClientDataService.$inject = ['$q', 'localStorageService', 'config'];
+     ViewReminderClientDataService.$inject = [];
 
-     function ViewReminderClientDataService($q, localStorageService, config) {
+     function ViewReminderClientDataService() {
          var viewReminderClientDataService = {
-             getReminderDetails: getReminderDetails
+           
            
          };
          return viewReminderClientDataService;
 
-         function getReminderDetails() {
-             var defer = $q.defer();
-             var reminderDetails = localStorageService.get(config.localStorageKeys.reminderDetails);
-             if (reminderDetails) {
-                //console.log(reminderDetails);
-                 defer.resolve(reminderDetails);
-             } else {
-                 defer.reject();
-             }
-             return defer.promise;
-         }
-         
+    
 
      }
 

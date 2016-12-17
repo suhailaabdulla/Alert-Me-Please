@@ -10,41 +10,11 @@
      */
     .controller('ProfileController', Profile);
 
-    Profile.$inject = ['$state', '$filter', 'ProfileDataService'];
+    Profile.$inject = [];
 
-    function Profile($state, $filter, ProfileDataService) {
-        var profileVm = this;
+    function Profile() {
+       
 
-        profileVm.profileDetails = {}
-        profileVm.profileDetails.userName = "";
-        profileVm.profileDetails.email = "";
-        profileVm.profileDetails.emailVerified = "";
-
-        activate();
-
-        function activate() {
-
-
-            ProfileDataService.getProfileDetails().then(function(response) {
-                profileVm.profileDetails.userName = response.email;
-                profileVm.profileDetails.email = response.email;
-                profileVm.profileDetails.emailVerified = response.emailVerified;
-                console.log(response);
-            }).catch(function(error) {
-                alert(error);
-            });
-
-
-
-            /*ProfileDataService.getProfileDetails().then(function(response) {
-                console.log(response);
-            }).catch(function(error) {
-                console.log(error);
-                alert(error);
-            });*/
-        }
-
-
-    }
+}
 
 })();

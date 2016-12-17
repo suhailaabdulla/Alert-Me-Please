@@ -15,85 +15,38 @@
 
     .factory('ReminderPersistenceDataService', ReminderPersistenceDataService);
 
-    ReminderDataService.$inject = ['ReminderClientDataService', 'ReminderPersistenceDataService'];
+    ReminderDataService.$inject = [];
 
-    function ReminderDataService(ReminderClientDataService, ReminderPersistenceDataService) {
+    function ReminderDataService() {
         var reminderDataService = {
-            getAllReminders: getAllReminders,
-            storeReminderDetails: storeReminderDetails
+           
         };
         return reminderDataService;
 
-        function getAllReminders() {
-            return ReminderPersistenceDataService.getAllReminders();
-        }
-        function storeReminderDetails(reminderDetails){
-            return ReminderClientDataService.storeReminderDetails(reminderDetails);
-        }
-
 
     }
 
-    ReminderClientDataService.$inject = ['$q', 'localStorageService', 'config'];
+    ReminderClientDataService.$inject = [];
 
-    function ReminderClientDataService($q, localStorageService, config) {
+    function ReminderClientDataService() {
         var reminderClientDataService = {
-            getAllReminders: getAllReminders,
-            storeReminderDetails: storeReminderDetails
+          
         };
         return reminderClientDataService;
 
-        function getAllReminders() {
-            var defer = $q.defer();
-            var reminderDetails = localStorageService.get(config.localStorageKeys.reminderDetails);
-            console.log(reminderDetails);
-            defer.resolve(reminderDetails);
-
-
-
-            return defer.promise;
-        }
-         function storeReminderDetails(reminderDetails){
-            var defer = $q.defer();
-             localStorageService.set(config.localStorageKeys.reminderDetails, reminderDetails);
-             //console.log(111);
-             //console.log(reminderDetails);
-             defer.resolve(reminderDetails);
-             return defer.promise;
-        }
+      
 
 
     }
 
-    ReminderPersistenceDataService.$inject = ['$q', 'config', 'HeaderDataService'];
+    ReminderPersistenceDataService.$inject = [];
 
-    function ReminderPersistenceDataService($q, config, HeaderDataService) {
+    function ReminderPersistenceDataService() {
         var newReminderPersistenceDataService = {
-            getAllReminders: getAllReminders
+            
         };
         return newReminderPersistenceDataService;
 
-        function getAllReminders() {
-            var defer = $q.defer();
-            console.log("userUniqueKey");
-            HeaderDataService.getUserUniqueKey().then(function(userUniqueKey) {
-                console.log("userUniqueKey : " + userUniqueKey);
-
-                var ref = firebase.database().ref(userUniqueKey + "/" + config.firebaseKeys.reminder).orderByChild("creation");
-
-                var query;
-                query = ref.equalTo(null);
-
-                query.once("value", function(dataFetch) {
-                    //console.log(dataFetch.val());
-                    defer.resolve(dataFetch.val());
-
-                }, function(error) {
-                    console.log(error);
-                });
-
-            });
-            return defer.promise;
-        }
+       
     }
 })();

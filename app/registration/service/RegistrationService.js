@@ -15,35 +15,24 @@
 
      .factory('RegistrationPersistenceDataService', RegistrationPersistenceDataService);
 
-     RegistrationDataService.$inject = ['RegistrationClientDataService'];
+     RegistrationDataService.$inject = [];
 
-     function RegistrationDataService(RegistrationClientDataService) {
+     function RegistrationDataService() {
          var registrationDataService = {
-             storeUserDetails: storeUserDetails
+             
          };
 
          return registrationDataService;
 
-
-         function storeUserDetails(userDetails) {
-             return RegistrationClientDataService.storeUserDetails(userDetails);
-         }
      }
 
-     RegistrationClientDataService.$inject = ['$q', 'localStorageService', 'config'];
+     RegistrationClientDataService.$inject = [];
 
-     function RegistrationClientDataService($q, localStorageService, config) {
+     function RegistrationClientDataService() {
          var registrationClientDataService = {
-             storeUserDetails: storeUserDetails
          };
          return registrationClientDataService;
 
-         function storeUserDetails(userDetails) {
-             var defer = $q.defer();
-             localStorageService.set(config.localStorageKeys.userDetails, userDetails);
-             defer.resolve(true);
-             return defer.promise;
-         }
      }
 
      RegistrationPersistenceDataService.$inject = [];

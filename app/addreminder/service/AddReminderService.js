@@ -15,78 +15,40 @@
 
     .factory('AddReminderPersistenceDataService', AddReminderPersistenceDataService);
 
-    AddReminderDataService.$inject = ['AddReminderClientDataService','AddReminderPersistenceDataService'];
+    AddReminderDataService.$inject = [];
 
-    function AddReminderDataService(AddReminderClientDataService,AddReminderPersistenceDataService) {
+    function AddReminderDataService() {
         var addReminderDataService = {
-            addNewReminder: addNewReminder
+            
         };
 
         return addReminderDataService;
 
 
-        function addNewReminder(newReminder) {
-            return AddReminderPersistenceDataService.addNewReminder(newReminder);
-        }
-
-        /*function getMealListItems() {
-            return MealPLanClientDataService.getMealListItems() || MealPlanPersistenceDataService.getMealListItems();
-        }*/
+       
     }
 
-    AddReminderClientDataService.$inject = ['$q', 'localStorageService'];
+    AddReminderClientDataService.$inject = [];
 
-    function AddReminderClientDataService($q, localStorageService) {
+    function AddReminderClientDataService() {
         var addReminderClientDataService = {
-            addNewReminder: addNewReminder
+           
         };
         return addReminderClientDataService;
 
-        function addNewReminder(newReminder) {
-            console.log(newReminder);
-            var previousReminders = localStorageService.get("allReminders");
-            if (previousReminders) {
-
-            } else {
-                previousReminders = [];
-            }
-            previousReminders.push(newReminder);
-            localStorageService.set("allReminders", previousReminders);
-        }
+        
 
 
-        function getPreviousDayTotalPoints() {
-            var localStorageEntry = localStorageService.get("hirs.allPoints");
-            var previousDayTotalPoints = 0;
-            if (localStorageEntry) {
-                var lastSendDate = Object.keys(localStorageEntry)[Object.keys(localStorageEntry).length - 1];
-                if (lastSendDate) {
-                    previousDayTotalPoints = (localStorageEntry[lastSendDate].total_point) ? localStorageEntry[lastSendDate].total_point : 0;
-                }
-            }
-            return previousDayTotalPoints;
-        }
+        
     }
 
-    AddReminderPersistenceDataService.$inject = ['$q','config','HeaderDataService'];
+    AddReminderPersistenceDataService.$inject = [];
 
-    function AddReminderPersistenceDataService($q,config,HeaderDataService) {
-        var addReminderPersistenceDataService = {
-            addNewReminder:addNewReminder
-        };
+    function AddReminderPersistenceDataService() {
+        var addReminderPersistenceDataService = {};
 
         return addReminderPersistenceDataService;
 
-        function addNewReminder(newReminder){
-            console.log(newReminder);
-            var defer=$q.defer();
-            HeaderDataService.getUserUniqueKey().then(function(userUniqueKey){
-                console.log("userUniqueKey:"+ userUniqueKey);
-                firebase.database().ref(userUniqueKey +"/"+config.firebaseKeys.reminder).push(newReminder);
-                defer.resolve(true);
-            });
-            return defer.promise;
-
-        }
+       
     }
 })();

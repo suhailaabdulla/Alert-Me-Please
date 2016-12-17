@@ -10,17 +10,10 @@
      */
     .controller('SettingsController', Settings);
 
-    Settings.$inject = ['$state'];
+    Settings.$inject = [];
 
-    function Settings($state) {
-        var loginVm = this;
+    function Settings() {
         
-        /*loginVm.reg_num = "234";
-        loginVm.password = "123"
-
-        loginVm.authenticateUser = authenticateUser;
-        activate();*/
-
         
     }
 

@@ -18,37 +18,21 @@
     ProfileDataService.$inject = ['ProfileClientDataService'];
 
     function ProfileDataService(ProfileClientDataService) {
-        var profileDataService = {
-            getProfileDetails: getProfileDetails
-        };
-
+        var profileDataService = {};
         return profileDataService;
-
-        function getProfileDetails() {
-            return ProfileClientDataService.getProfileDetails();
-        }
-
+           
 
     }
 
-    ProfileClientDataService.$inject = ['$q', 'localStorageService', 'config'];
+    ProfileClientDataService.$inject = [];
 
-    function ProfileClientDataService($q, localStorageService, config) {
+    function ProfileClientDataService() {
         var profileClientDataService = {
-            getProfileDetails: getProfileDetails
+           
         };
         return profileClientDataService;
 
-        function getProfileDetails() {
-            var defer = $q.defer();
-            var profileDetails = localStorageService.get(config.localStorageKeys.userDetails);
-            if (!profileDetails) {
-                defer.reject("User is not registered yet!");
-            } else {
-                defer.resolve(profileDetails);
-            }
-            return defer.promise;
-        }
+        
 
 
     }
